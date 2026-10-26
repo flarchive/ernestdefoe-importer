@@ -1,0 +1,84 @@
+{
+  "name": "ernestdefoe/importer",
+  "description": "Importer / converter for Flarum 2 — migrate a forum into Flarum from phpBB, vBulletin (3/4/5), XenForo, MyBB, SMF, Vanilla, NodeBB, Invision, Discourse, Web Wiz Forums or Convoro. Web-based in the admin, runs in the background in batches with a live progress bar.",
+  "keywords": ["flarum", "flarum-extension", "import", "importer", "migration", "converter", "phpbb", "xenforo", "vbulletin", "discourse", "webwiz"],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ernestdefoe",
+      "email": "ernestdefoe@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/ernestdefoe/importer",
+  "support": {
+    "forum": "https://discuss.flarum.org/d/39527-importer",
+    "issues": "https://github.com/ernestdefoe/importer/issues",
+    "source": "https://github.com/ernestdefoe/importer"
+  },
+  "require": {
+    "php": "^8.3",
+    "flarum/core": "^2.0",
+    "league/commonmark": "^2.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "ErnestDefoe\\Importer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ErnestDefoe\\Importer\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Importer",
+      "category": "feature",
+      "icon": {
+        "name": "fas fa-file-import",
+        "backgroundColor": "#5b5bd6",
+        "color": "#fff"
+      },
+      "optional-dependencies": [
+        "flarum/tags",
+        "flarum/messages",
+        "ernestdefoe/group-messages"
+      ]
+    },
+    "flarum-cli": {
+      "modules": {
+        "js": true,
+        "css": true,
+        "locale": true
+      }
+    }
+  },
+  "require-dev": {
+    "flarum/phpstan": "^2.0",
+    "flarum/tags": "^2.0",
+    "flarum/testing": "^2.0",
+    "flarum/markdown": "^2.0",
+    "flarum/messages": "^2.0",
+    "ernestdefoe/group-messages": "^2.1",
+    "flarum/bbcode": "^2.0",
+    "flarum/mentions": "^2.0",
+    "ernestdefoe/scribe": "^1.4"
+  },
+  "scripts": {
+    "test": [
+      "@test:integration"
+    ],
+    "test:integration": "phpunit -c tests/phpunit.integration.xml",
+    "test:setup": "@php tests/integration/setup.php",
+    "analyse:phpstan": "phpstan analyse"
+  },
+  "scripts-descriptions": {
+    "test": "Runs all tests.",
+    "test:integration": "Runs all integration tests.",
+    "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+    "analyse:phpstan": "Run static analysis"
+  },
+  "minimum-stability": "beta",
+  "prefer-stable": true
+}
